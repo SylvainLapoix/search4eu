@@ -1,0 +1,66 @@
+---
+title: "Search4EU"
+subtitle: "a first look at our data-gathering tool"
+author: "Sylvain, Datactivist"
+date: "EDJNet 2 at GIJC, September 2019"
+output:
+  SlidesDatactivist::moon_reader:
+    css: [default, datactivist, datactivist-fonts]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+params:
+  event: EDJNet2 at GIJC2019
+---
+
+layout: true
+  
+
+`r paste0("<div class='my-footer'><span>", params$event, "</span> <center><div class=logo><img src='https://github.com/datactivist/slides_datactivist/raw/master/inst/rmarkdown/templates/xaringan/resources/img/fond_noir_monochrome.png' width='100px'></center></span></div>")` 
+
+---
+
+class: center, middle
+
+Ces slides en ligne : `r paste0("http://datactivist.coop/", params$slug)`
+
+Sources : `r paste0("https://github.com/datactivist/", params$slug)`
+
+
+Les productions de Datactivist sont librement réutilisables selon les termes de la licence [Creative Commons 4.0 BY-SA](https://creativecommons.org/licenses/by-sa/4.0/legalcode.fr).
+
+<BR>
+<BR>
+
+![](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-sa.png)
+
+
+---
+
+## Who are we ?
+
+<BR><BR><BR><BR>
+
+[![](https://github.com/datactivist/slides_datactivist/raw/master/inst/rmarkdown/templates/xaringan/resources/img/logo.png)](https://datactivist.coop)
+
+### We .red[open data], we make them .red[useful]
+
+
+---
+
+class: inverse, center, middle
+
+## Sorry, we're buzzy chasing those sources !
+
+![](./img/buzzlightyear.jpg)
+
+
+---
+class: inverse, center, middle
+
+# Thank you !
+
+Contact : [sylvain@datactivist.coop](mailto:sylvain@datactivist.coop) & [mathieu@datactivist.coop](mailto:mathieu@datactivist.coop)
+

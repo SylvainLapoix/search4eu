@@ -51,7 +51,8 @@ Datactivist productions can be reused under the terms of [Creative Commons 4.0 B
 
 class: inverse, center, middle
 
-## I. Aleph, our technical stack
+## I. Aleph toolkit
+## our technical stack
 
 
 ---
@@ -135,9 +136,7 @@ Aleph framework is an entirely open-source framework developped, maintained and 
 * der Dagbladet Medialab ;
 * many other media and NGOs.
 
-We help identify problems and new needs and to address them. All those fixes and new features are integrated in an accessible and free public version of the program.
-
-The philosophy behind it : **building a free and independent tool for the community and by the community**.
+We help identify problems and new needs and to address them. All those fixes and new features are integrated to the project.
 
 ]
 
@@ -193,7 +192,7 @@ class: center, top, inverse
 
 ---
 
-### The crawlers : our command interface
+### The crawlers : our blueprints
 
 **Crawlers** perform tasks in a specifics order, passing the result of each operation to a subsequent one. This series of **steps** is called **the pipeline** .
 
@@ -285,13 +284,13 @@ Although it is slightly modified to be digested :
 
 --
 
-1. it is renamed with a "hash" : as document name format is not standard and naming metadata sometime badly coded, Memorious standardises doc names into a 41 long character non-sense like :
-* b7adab39f94b8f77fefec2c739d8c6cf46e6f71f ;
-* 12f9675127da07ff3c8f837254971bcf89b35b5f ;
-* 7d6d010a1dbd663e0600583e69cb686d465a58d5 (this is my favorite).
-2. the format is standardised to ".raw" for handling.
+* it is renamed with a "hash" : as document name format is not standard and naming metadata sometime badly coded, Memorious standardises doc names into a 41 long character non-sense like :
+  * b7adab39f94b8f77fefec2c739d8c6cf46e6f71f ;
+  * 12f9675127da07ff3c8f837254971bcf89b35b5f ;
+  * 7d6d010a1dbd663e0600583e69cb686d465a58d5 (this is my favorite).
+* the format is standardised to ".raw" for handling.
 
-However, the content of the file is intact and it can be displayed easily to check.
+However, the content of the file reamins intact and it can be displayed easily to check.
 
 ???
 
@@ -373,13 +372,13 @@ class: center, top, inverse
 
 The documents and documentation (i.e. the json files) gathered by **Memorious** can be made accessible to **Aleph** in two ways :
 * by storing them in a shared directory on a server (or locally) with the `store` method ;
-* by connecting directly to Aleph API with the *aleph_emit* method, available in the *alephclient* package (available [on Github](https://github.com/alephdata/alephclient) and `pip`).
+* by connecting directly to Aleph API with the *aleph_emit* method, available in the *alephclient* package (available [on Github](https://github.com/alephdata/alephclient) and through `pip`).
 
 --
 
 Once *fed*, Aleph can index the document and extract information about them to make them searchable through it's front-end interface.
 
-Apart from simple indexation, Aleph provides other entry points through the data gathered by memorious :
+Apart from simple indexation, Aleph provides other entry points through the data gathered by Memorious :
 * doc types ;
 * countries ;
 * dates ;
@@ -393,7 +392,7 @@ Apart from simple indexation, Aleph provides other entry points through the data
 
 ---
 
-### A search engine for health investigation (beta)
+### Our first custom search engine (beta)
 
 ![](./img/aleph_ui_edjnet.png)
 
@@ -416,13 +415,17 @@ class: center, top, inverse
 
 ### Database guides
 
-??? summaries for datasets
+???
+
+summaries for datasets
 
 ---
 
 ### Entity mapping
 
-??? NPL power unleashed for cross-document entity mapping
+???
+
+NPL power unleashed for cross-document entity mapping
 
 ---
 

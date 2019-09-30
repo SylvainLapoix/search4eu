@@ -375,11 +375,11 @@ class: center, top, inverse
 
 The documents and documentation (i.e. the json files) gathered by **.red[Memorious]** can be made accessible to **.red[Aleph]** in two ways :
 * by storing them in a shared directory on a server (or locally) with the `store` method ;
-* by connecting directly to Aleph API with the *aleph_emit* method, available in the *alephclient* package (available [on Github](https://github.com/alephdata/alephclient) and through `pip`).
+* by connecting directly to Aleph API with the *aleph_emit* method, provided by the *alephclient* package (available [on Github](https://github.com/alephdata/alephclient) and through `pip`).
 
 --
 
-Once *fed*, **.red[Aleph]** can index the document and extract information about them to make them searchable through it's front-end interface.
+Once *fed*, **.red[Aleph]** can index the document and extract information about them to make them searchable through its front-end interface.
 
 Apart from simple indexation, **.red[Aleph]** provides other entry points through the data gathered by **.red[Memorious]** :
 * doc types ;
@@ -432,15 +432,15 @@ class: center, top, inverse
 
 #### Entry points and summaries
 
-OCCRP is working on proposing reading keys for the datasets to address the feeling of confusion in front of the huge amount of documents made available by **.red[Aleph]**
+OCCRP is working on proposing reading keys for the datasets to address the feeling of confusion in front of the huge amount of documents made available by **.red[Aleph]**.
 
 .pull-left[
-It aims at answering three main user profils :
+It aims at answering three main user profiles :
 1. those not knowing what to look for ;
-2. those not knowing what's interesing ;
+2. those not knowing what's interesting ;
 3. those knowing exactly what they look for.
 
-We will take advantage of metadata retrieved by **.red[Memorious]** and of **.red[Aleph]** naturel-language-processing capabilities (we'll get back to that later).
+We will take advantage of metadata retrieved by **.red[Memorious]** and of **.red[Aleph]**'s Natural Language Processing capabilities (we'll get back to that later).
 ]
 
 .pull-right[
@@ -477,7 +477,7 @@ NPL power unleashed for cross-document entity mapping
 #### Follow the Money (FtM)
 
 .pull-left[
-**.red[Aleph]** was designed with many purposes. But one of the key goal was to be able to track corruption and illegal activities by identifying the actors and their interactions across documents.
+**.red[Aleph]** was designed with many purposes. But one of the key goals was to be able to track corruption and illegal activities by identifying the actors and their interactions across documents.
 
 To make this search possible, it needed a data standard to store all the information it could collect and compare : this model is **[Follow the Money](https://docs.alephdata.org/developers/followthemoney)** (or FtM).
 
@@ -530,7 +530,7 @@ class: inverse
 #### Entity mapping
 
 .pull-left[
-**.red[Aleph]** is specifically designed to pull data from documents to compare them to entities existing in the database, complete them or create new ones. This is the process known as **entity mapping**. This part of the work is handled by [spaCy](https://spacy.io/), a Python library specialized in **natural language processing** (or NLP), able to connect data in many languages.
+**.red[Aleph]** is specifically designed to pull data from documents to compare them to entities existing in the database, complete them or create new ones. This is the process known as **entity mapping**. This part of the work leverages [spaCy](https://spacy.io/), a Python library specialized in **natural language processing** (or NLP), able to analyze data in many languages.
 
 So far, **.red[Aleph]** works fine with structured data. We now need to improve its ability to map unstructured documents such as :
 * PDF ;
@@ -539,7 +539,7 @@ So far, **.red[Aleph]** works fine with structured data. We now need to improve 
 ]
 
 .pull-right[
-Among the most useful features, this allows us to improve Named Entity Recognition (or NER). Like solving the infamous problem of on actual planet named three ways : the **evening star** :
+This requires improving and fine-tuning models for Named Entity Recognition (or NER) and [Entity Linking](https://www.youtube.com/watch?v=PW3RJM8tDGo). Like solving the infamous problem of an actual planet named three ways : the **evening star** :
 
 .small[
 ![L'Etoile du Berger, Camille Corot (1864)](img/eveningstar.jpg)

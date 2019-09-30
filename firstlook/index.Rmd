@@ -63,13 +63,13 @@ class: inverse, center, middle
 
 --
 
-[**Aleph**](https://github.com/alephdata/aleph) is a tool for indexing, scraping and browsing large amounts of structured and unstructured data sources. It is entirely open-source.
+[**Aleph**](https://github.com/alephdata/aleph) is a tool for scraping, indexing and browsing large amounts of structured and unstructured data sources. It is entirely open-source.
 
 The tool is used and maintained by several organisations dedicated to investigating corruption and organized crime across the globe, such as Code for Africa and OpenOil, to the benefit of many medias.
 
 Our interest in **.red[Aleph]** lies in three main features :
-* **scraping** (via OCR and advanced parsing) ;
-* **indexation** (for browsing, including front-end);
+* **scraping** data from online sources ;
+* **indexation**, via OCR and advanced parsing (for browsing, including front-end);
 * **entity mapping** (identification and connection of named entities accross documents).
 
 ---
@@ -80,9 +80,12 @@ Our interest in **.red[Aleph]** lies in three main features :
 
 --
 
-[Memorious](https://github.com/alephdata/memorious) is the module of the **.red[Aleph toolkit]** dedicated to crawling and scraping documents.
+[Memorious](https://github.com/alephdata/memorious) is the module of the **.red[Aleph toolkit]** dedicated to crawling websites and scraping documents.
 
-It works as a framework. Meaning it handles several smaller programs to execute several tasks.
+It is designed as a framework to build and run crawlers.
+Memorious provides building blocks that perform basic tasks.
+You parameterize and assemble them.
+Memorious runs and monitors the crawlers.
 
 Our interest in **.red[Memorious]** is three-fold :
 * it allows us to **crawl** a large number of websites ;
@@ -112,7 +115,7 @@ _________
 
 #### FRONT
 
-*search4eu, a custom search-engine*
+*search4eu, a custom search engine*
 ]
 ]
 
@@ -122,7 +125,7 @@ Our work consists in configuring, coordinating and, if necessary, completing bot
 In practice :
 1. we set up crawlers in **.red[Memorious]** to target the websites that may publish relevant documents ;
 2. we store the results to feed them to **.red[Aleph]** ;
-3. we configure **.red[Aleph]** to index documents & map entities to make them accessible in a seach-engine interface.
+3. we configure **.red[Aleph]** to index documents & map entities to make them accessible in a search engine interface.
 ]
 
 ---
@@ -130,13 +133,13 @@ In practice :
 ### Open-source innovation
 
 .pull-left[
-**.red[Aleph]** framework is an entirely open-source framework developped, maintained and improved by a large community of various organizations :
+The **.red[Aleph]** framework is an entirely open-source framework developped, maintained and improved by a large community of various organizations :
 * Organized Crime and Corruption Reporting Project ([OCCRP](https://www.occrp.org/en)) ;
 * die Süddeutsche Zeitung ;
 * der Dagbladet Medialab ;
 * many other media and NGOs.
 
-We help identify problems and new needs and to address them. All those fixes and new features are integrated to the project.
+We help to identify problems and new needs and to address them. All those fixes and new features are integrated to the project.
 
 ]
 
@@ -166,13 +169,13 @@ class: center, top, inverse
 
 ---
 
-### General mecanics
+### General mechanics
 
-**.red[Memorious]** is the first module we need : it's a program used to retrieve docs and data from open sources on the Internet. It allows us to handle fleets of **crawlers**.
+**.red[Memorious]** is the first module we need : it's a program used to retrieve docs and data from open sources on the Internet. It allows us to set up and manage fleets of **crawlers**.
 
-**Crawlers** are short programs that target specifics websites, pages, documents and data by combining **methods** into a straight order called *"the pipeline"*.
+**Crawlers** are short programs that target specific websites, pages, documents and data by chaining **methods** to define a *"processing pipeline"*.
 
-**Methods** are shorter programs that perform specific tasks required to crawl : generating numbers, pasting data into a URL, fetch HTML from a web page, storing data, etc.
+**Methods** are shorter programs that perform specific tasks required to crawl : generating numbers, pasting data into a URL, fetching a web page, parsing a web page to find links to other pages, storing data, etc.
 
 --
 
@@ -194,7 +197,7 @@ class: center, top, inverse
 
 ### The crawlers : our blueprints
 
-**Crawlers** perform tasks in a specifics order, passing the result of each operation to a subsequent one. This series of **steps** is called **the pipeline** .
+**Crawlers** perform tasks in a specific order, passing the result of each operation to a subsequent one. This series of **steps** is called **the pipeline** .
 
 --
 
@@ -202,15 +205,15 @@ class: center, top, inverse
 It usually goes like this :
 1. we generate building parts for the URL (dates, numbers, etc.) (*init*) ;
 2. we paste them into a URL (*seed*) ;
-3. we retrieve the HTML (*fetch*) ;
-4. we look it up for document's addresses (*parse*) ;
+3. we retrieve the web page for this URL (*fetch*) ;
+4. we search the HTML code for links to documents of interest (*parse*) ;
 5. we download the docs (*store*).
 
-At each step, we call for one **method** (we'll see that in a minute). At the end of every step, we `pass` the result of the operation.
+At each step, we call one **method** (we'll see that in a minute). At the end of every step, we `pass` the result of the operation.
 ]
 
 .pull-right[
-The crawler themselves are configured via a YAML file that goes something like this :
+Each crawler is defined in a YAML file similar to this one :
 
 ```yaml
 name: my_crawler
@@ -237,7 +240,7 @@ pipeline:
 
 ### The methods : our toolbox
 
-The **methods** are Python scripts designed to perform the tasks necessary to scraping. Every method has a designated spot in the pipeline : it can only treat specific data input and output a specific data format. Methods often require **parameters** (called here "*params*") to specify the way to handle a task : starting number for enumeration, base URL to seed, target xPath to parse HTML, etc.
+The **methods** are Python scripts designed to perform the tasks necessary to scraping. Every method has a designated spot in the pipeline : it can only treat specific data input and output a specific data format. Methods often require **parameters** (named here "*params*") to specify how to handle a task : starting number for enumeration, base URL to seed, target xPath to parse HTML, etc.
 
 ```python
 def seed(context, data):
@@ -274,11 +277,11 @@ First example : edjnews, a crawler for EDJNet data news
 
 ### What do we get ?
 
-The crawler basic goal it to retrieve documents and to store data about them.
+The basic goal of the crawler is to retrieve documents and to store data about them.
 
 #### 1. The doc itself
 
-The doc itself is downloaded from the specified path specified in the crawler.
+The doc itself is downloaded from the path specified in the crawler.
 
 Although it is slightly modified to be digested :
 
@@ -288,9 +291,9 @@ Although it is slightly modified to be digested :
   * b7adab39f94b8f77fefec2c739d8c6cf46e6f71f ;
   * 12f9675127da07ff3c8f837254971bcf89b35b5f ;
   * 7d6d010a1dbd663e0600583e69cb686d465a58d5 (this is my favorite).
-* the format is standardised to ".raw" for handling.
+* the file extension is standardised to ".raw" for handling.
 
-However, the content of the file reamins intact and it can be displayed easily to check.
+However, the content of the file remains intact and it can be displayed easily to check.
 
 ???
 
@@ -300,7 +303,7 @@ Show raw file from the edjnews operation.
 
 #### 2. A json file
 
-It's named the same way as the doc it refers to. It contains data about the doc (type, address, encoding ...), the operation performed by the crawler (request, timestamp, etc.) and, optionaly, extra metadata, if configured accordingly. Those data can be used and accessed directly and by **.red[Aleph]** after transfer.
+It's named after the doc it refers to. It contains basic metadata about the doc (type, address, encoding ...), the operation performed by the crawler (request, timestamp, etc.) and, optionally, extra metadata, if configured accordingly. Those data can be used and accessed directly and by **.red[Aleph]** after transfer.
 
 > {"url": "http://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?BASE=BOLE&CMD=VERLST&DOCS=1-200&PUBL=20190805&SEC=FIRMA", "request_id": "GET http://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?BASE=BOLE&CMD=VERLST&DOCS=1-200&PUBL=20190805&SEC=FIRMA", "status_code": 200, "content_hash": "691e5a5bc76485f1236c9ad62ff7e63cbbe034f5", "headers": {"Date": "Tue, 17 Sep 2019 12:52:20 GMT", "Server": "Apache", "Set-Cookie": "BCSID=a015cb6b; path=/", "Connection": "close", "Transfer-Encoding": "chunked", "Content-Type": "text/html"}, "retrieved_at": "2019-09-17T12:52:21.054501", "title": "Bolet\u00edn Oficial de Arag\u00f3n", "_file_name": "691e5a5bc76485f1236c9ad62ff7e63cbbe034f5.raw"}
 
@@ -312,19 +315,19 @@ Show json file from edjnews operation.
 
 ### How do we proceed for search4eu ? 
 
-Our main goal with **.red[Memorious]** regarding **.red[search4eu]** was to create fleats of crawlers able to retrieve large amounts of legal decisions in several countries and filter them according to the topic of the investigations.
+Our main goal with **.red[Memorious]** regarding **.red[search4eu]** was to create fleets of crawlers able to retrieve large amounts of legal decisions in several countries and filter them according to the topic of the investigations.
 
 --
 
 .pull-left[
 .center[**.red[Method]** `r emo::ji('hammer_and_pick')`]
 
-1. study websites for patterns ;
+1. find basic patterns in websites ;
 2. test pattern with devtools ;
 3. design a general pipeline to get every decision ;
-4. test the "generic crawlers" until working ;
-5. study websites to search filtering patterns ;
-6. embed the filtering method in generic crawler ;
+4. test the "generic crawlers" until they work ;
+5. find patterns to filter out boilerplate and irrelevant content ;
+6. embed the filtering patterns in the generic crawler ;
 7. repeat until Berlin.
 ]
 
@@ -336,7 +339,7 @@ Our main goal with **.red[Memorious]** regarding **.red[search4eu]** was to crea
 * representative assemblies (Senado y Congresso) ;
 * public registers (subvenciones, contrataciones, etc.).
 
-We focused on the earlier in order to find patterns and replicables formats.
+We focused on the first category in order to find patterns and replicable formats.
 ]
 
 ---

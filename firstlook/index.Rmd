@@ -548,20 +548,22 @@ This requires improving and fine-tuning models for Named Entity Recognition (or 
 
 ---
 
-
-background-image: url(https://media.giphy.com/media/rxS39ocIdcgZa/giphy.gif)
 class: center, top, inverse
 
 
-### If you have any questions and/or suggestions
+### And now, what about you :
+###what websites do you want to crawl ?
 
-#### I'll be glad to answer and/or take them into account
+
+![](https://media.giphy.com/media/t7NqkPey14axG/giphy.gif)
 
 
 
 ---
 
-class: inverse, center, middle
+background-image: url(https://media.giphy.com/media/BYaQgGmxF4bgA/giphy.gif)
+
+class: inverse, center, bottom
 
 # Thank you !
 
